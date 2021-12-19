@@ -18,5 +18,16 @@ namespace CourierKataTests
 
             Assert.AreEqual(3.00, result.TotalCost);
         }
+
+        [Test]
+        public void ShouldIncludeCollectionOfItemsWithIndividualCostInResult()
+        {
+            var calculator = new OrderCostCalculator();
+
+            var result = calculator.CalculateCost(1, 1, 1);
+
+            Assert.AreEqual(1, result.Items.Length);
+            Assert.AreEqual(3, result.Items.First().Cost);
+        }
     }
 }
