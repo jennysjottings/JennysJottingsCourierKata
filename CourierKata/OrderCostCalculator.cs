@@ -2,7 +2,7 @@
 {
     public class OrderCostCalculator
     {
-        public OrderCostResult CalculateCost(int width, int length, int height)
+        public OrderCostResult CalculateCost(int width, int length, int height, bool speedyShipping = false)
         {
             var totalDimensions = width * length * height;
             decimal cost = 0;
@@ -26,7 +26,12 @@
                     description = "XL Parcel";
                     break;
             }
-            return new OrderCostResult(new[] { new OrderItem(cost, description) });
+            var output = new OrderCostResult(new[] { new OrderItem(cost, description) });
+            if (speedyShipping)
+            {
+                output.AddSpeedyShipping();
+            }
+            return output;
         }
     }
 }
