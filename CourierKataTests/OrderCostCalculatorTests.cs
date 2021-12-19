@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using CourierKata;
 
 namespace CourierKataTests
 {
@@ -15,7 +16,7 @@ namespace CourierKataTests
 
             var result = calculator.CalculateCost(width, length, height);
 
-            Assert.Equals(3.00, result.TotalCost);
+            Assert.AreEqual(3.00, result.TotalCost);
         }
     }
 }
