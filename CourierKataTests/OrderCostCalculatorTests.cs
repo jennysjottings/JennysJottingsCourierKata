@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using CourierKata;
+using System.Linq;
 
 namespace CourierKataTests
 {
@@ -26,7 +27,7 @@ namespace CourierKataTests
 
             var result = calculator.CalculateCost(1, 1, 1);
 
-            Assert.AreEqual(1, result.Items.Length);
+            Assert.AreEqual(1, result.Items.Count());
             Assert.AreEqual(3, result.Items.First().Cost);
         }
     }
