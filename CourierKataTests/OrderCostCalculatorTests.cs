@@ -28,7 +28,7 @@ namespace CourierKataTests
 
             Assert.AreEqual(1, result.Items.Count());
             Assert.AreEqual(3, result.Items.First().Cost);
-            Assert.AreEqual("Small parcel", result.Items.First().Description);
+            Assert.AreEqual("Small Parcel", result.Items.First().Description);
         }
     }
 }
