@@ -20,7 +20,7 @@ namespace CourierKataTests
         }
 
         [Test]
-        public void ShouldIncludeCollectionOfItemsWithIndividualCostInResult()
+        public void ShouldIncludeCollectionOfItemsWithIndividualCostAndDescriptionInResult()
         {
             var calculator = new OrderCostCalculator();
 
@@ -28,6 +28,7 @@ namespace CourierKataTests
 
             Assert.AreEqual(1, result.Items.Count());
             Assert.AreEqual(3, result.Items.First().Cost);
+            Assert.AreEqual("Small parcel", result.Items.First().Description);
         }
     }
 }
