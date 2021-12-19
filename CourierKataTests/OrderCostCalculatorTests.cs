@@ -14,7 +14,7 @@ namespace CourierKataTests
         {
             var calculator = new OrderCostCalculator();
 
-            var result = calculator.CalculateCost(width, length, height);
+            var result = calculator.CalculateCost(width, length, height, 1);
 
             Assert.AreEqual(cost, result.TotalCost);
         }
@@ -24,7 +24,7 @@ namespace CourierKataTests
         {
             var calculator = new OrderCostCalculator();
 
-            var result = calculator.CalculateCost(1, 1, 1);
+            var result = calculator.CalculateCost(1, 1, 1, 1);
 
             Assert.AreEqual(1, result.Items.Count());
             Assert.AreEqual(3, result.Items.First().Cost);
@@ -36,7 +36,7 @@ namespace CourierKataTests
         {
             var calculator = new OrderCostCalculator();
 
-            var result = calculator.CalculateCost(1, 1, 1, true);
+            var result = calculator.CalculateCost(1, 1, 1, 1, true);
 
             Assert.AreEqual(2, result.Items.Count());
         }
@@ -49,7 +49,7 @@ namespace CourierKataTests
         {
             var calculator = new OrderCostCalculator();
 
-            var result = calculator.CalculateCost(width, length, height, true);
+            var result = calculator.CalculateCost(width, length, height, 1, true);
 
             Assert.AreEqual(cost * 2, result.TotalCost);
             Assert.AreEqual(cost, result.Items.Single(x => !x.Description.ToLower().Equals("speedy shipping")).Cost);
