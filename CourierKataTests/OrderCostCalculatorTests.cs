@@ -6,18 +6,17 @@ namespace CourierKataTests
 {
     public class OrderCostCalculatorTests
     {
-        [Test]
-        public void ShouldCalculateCostForASingleParcel()
+        [TestCase(1, 1, 1, 3)]
+        [TestCase(1, 5, 5, 8)]
+        [TestCase(4, 4, 4, 15)]
+        [TestCase(10, 4, 4, 25)]
+        public void ShouldCalculateCostForASingleParcelBasedOnSize(int width, int length, int height, decimal cost)
         {
-            var width = 1;
-            var length = 1;
-            var height = 1;
-
             var calculator = new OrderCostCalculator();
 
             var result = calculator.CalculateCost(width, length, height);
 
-            Assert.AreEqual(3.00, result.TotalCost);
+            Assert.AreEqual(cost, result.TotalCost);
         }
 
         [Test]
