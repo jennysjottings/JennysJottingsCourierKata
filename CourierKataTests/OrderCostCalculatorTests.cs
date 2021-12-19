@@ -54,5 +54,19 @@ namespace CourierKataTests
             Assert.AreEqual(cost * 2, result.TotalCost);
             Assert.AreEqual(cost, result.Items.Single(x => !x.Description.ToLower().Equals("speedy shipping")).Cost);
         }
+
+        [TestCase(1, 1, 1, 3, 7)]
+        [TestCase(1, 5, 5, 5, 12)]
+        [TestCase(4, 4, 4, 8, 19)]
+        [TestCase(10, 4, 4, 12, 29)]
+        public void ShouldApplyOverweightSurcharge(int width, int length, int height, int weight, decimal cost)
+        {
+            var calculator = new OrderCostCalculator();
+
+            var result = calculator.CalculateCost(width, length, height, weight);
+
+            Assert.AreEqual(cost, result.TotalCost);
+        }
+
     }
 }
