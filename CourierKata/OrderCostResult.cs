@@ -13,6 +13,7 @@ namespace CourierKata
             Items = orderItems;
         }
 
+        // TODO: Could use decorator pattern to have an OrderCostResult that applies speedy shipping, then wouldn't need the AddSpeedyShipping method
         public void AddSpeedyShipping()
         {
             Items = Items.Concat(new[] { new OrderItem(TotalCost, "Speedy Shipping") });

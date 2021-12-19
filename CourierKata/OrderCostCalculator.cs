@@ -12,6 +12,7 @@ namespace CourierKata
             string description = string.Empty;
             switch (totalDimensions)
             {
+                // TODO: see comment on OrderItem re. having classes with this information built in
                 case < 10:
                     cost = 3;
                     description = "Small Parcel";
